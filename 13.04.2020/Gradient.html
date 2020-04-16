@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Градиент</title>
+  <style>
+    .specter1 {
+      height: 100px;
+      width: 800px;
+      outline: 1px solid blue;
+      background-image: linear-gradient(to right,
+       yellow 0, yellow 12.5%,
+       brown 12.5%, brown calc(12.5% * 2),
+       yellow calc(12.5% * 2), yellow calc(12.5% * 3),
+       brown calc(12.5% * 3), brown calc(12.5% * 4),
+       yellow calc(12.5% * 4), yellow calc(12.5% * 5),
+       brown calc(12.5% * 5), brown calc(12.5% * 6),
+       yellow calc(12.5% * 6), yellow calc(12.5% * 7),
+       brown calc(12.5% * 7), brown calc(12.5% * 8)
+       );
+          }
+
+      .specter2 {
+      height: 100px;
+      width: 800px;
+      outline: 1px solid blue;
+      background-image: linear-gradient(to right,
+       brown 0, brown 12.5%,
+       yellow 12.5%, yellow calc(12.5% * 2),
+       brown calc(12.5% * 2), brown calc(12.5% * 3),
+       yellow calc(12.5% * 3), yellow calc(12.5% * 4),
+       brown calc(12.5% * 4), brown calc(12.5% * 5),
+       yellow calc(12.5% * 5), yellow calc(12.5% * 6),
+       brown calc(12.5% * 6), brown calc(12.5% * 7),
+       yellow calc(12.5% * 7), yellow calc(12.5% * 8)
+       );
+          }
+
+  </style>
+</head>
+<body>
+  <div class="specter1"></div>
+  <div class="specter2"></div>
+  <div class="specter1"></div>
+  <div class="specter2"></div>
+  <div class="specter1"></div>
+  <div class="specter2"></div>
+  <div class="specter1"></div>
+  <div class="specter2"></div>
+
+</body>
+</html>
