@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Шахматная доска</title>
+  <style>
+body {
+    margin: 0;
+}
+
+
+body>div {
+    /* outline: 1px solid red; */
+    width: 100vmin;
+    height: 100vmin;
+}
+
+body>div>div {
+    /* outline: 1px solid blue; */
+    width: 100vmin;
+    height: 10vmin;
+}
+
+
+body>div::before, body>div::after {
+    display: block;
+    content: "abcdefgh";
+    height: 10vmin;
+    line-height: 10vmin;
+    font-size: 4vmin;
+    margin-left: 14vmin;
+    letter-spacing: 8.2vmin;
+}
+
+body>div>div>div {
+    outline: 1px solid red;
+    width: 10vmin;
+    height: 10vmin;
+    display: inline-block;
+}
+
+
+body>div>div {
+    font-size: 0;
+ /* word-spacing: -1vmin; */
+}
+
+body>div>div::before, body>div>div::after {
+    display: inline-block;
+    content: "";
+    width: 10vmin;
+    height: 10vmin;
+    /*outline: 1px solid lightblue;*/
+    font-size: 4vmin;
+    vertical-align: top;
+    line-height: 10vmin;
+    text-align: center;
+    /* background-color: lightblue; */
+}
+
+
+body>div>div:nth-child(even)>div:nth-child(even) {
+background-color: red;
+}
+
+body>div>div:nth-child(odd)>div:nth-child(odd) {
+background-color: red;
+}
+
+
+body>div {
+  counter-reset: rowBefor 0 rowAfter 0;
+}
+
+body>div>div::before {
+  counter-increment: rowBefore;
+  content: counter(rowBefore);
+}
+
+body>div>div::after {
+  counter-increment: rowAfter;
+  content: counter(rowAfter);
+}
+
+
+/*
+body>div>div:nth-child(1)::before, body>div>div:nth-child(1)::after {
+content: "1";
+}
+
+body>div>div:nth-child(2)::before, body>div>div:nth-child(2)::after {
+content: "2";
+}
+
+body>div>div:nth-child(3)::before, body>div>div:nth-child(3)::after {
+content: "3";
+}
+
+body>div>div:nth-child(4)::before, body>div>div:nth-child(4)::after {
+content: "4";
+}
+
+body>div>div:nth-child(5)::before, body>div>div:nth-child(5)::after {
+content: "5";
+}
+
+body>div>div:nth-child(6)::before, body>div>div:nth-child(6)::after {
+content: "6";
+}
+
+body>div>div:nth-child(7)::before, body>div>div:nth-child(7)::after {
+content: "7";
+}
+
+body>div>div:nth-child(8)::before, body>div>div:nth-child(8)::after {
+content: "8";
+}
+*/
+
+
+body>div>div:first-child>div, /* div вложенный в первого ребенка, который является div, вложенным в body>div */
+body>div>div:first-child+div>div, /* div вложенный в div, который является первым соседом первого ребенка, который является div, вложенный в body>div */
+body>div>div:last-child>div /* div вложенный в последнего ребенка, который является div, вложенным в body>div */
+body>div>div:nth-last-child(2)>div { /* div вложенный во втрого с конца ребенка, который является div, вложенным в body>div */
+  background-image: url(image.png);
+  background-size: 60vmin;
+  background-repeat: no-repeat;
+}
+
+body>div>div:nth-last-child(2)>div {
+  background-position: -52vmin 0;
+}
+
+body>div>div:first-child+div>div {
+  background-position: -52vmin -10vmin;
+}
+
+body>div>div:first-child>div {
+  background-position-y: -10vmin;
+}
+
+body>div>div:first-child>div:first-child,
+body>div>div:first-child>div:last-child,
+body>div>div:last-child>div:first-child,
+body>div>div:last-child>div:last-child
+{
+  background-position-x: -20vmin;
+}
+
+body>div>div:first-child>div:nth-child(2),
+body>div>div:first-child>div:nth-last-child(2),
+body>div>div:last-child>div:nth-child(2),
+body>div>div:last-child>div:nth-last-child(2)
+{
+  background-position-x: -42vmin;
+}
+
+body>div>div:first-child>div:nth-child(3),
+body>div>div:first-child>div:nth-last-child(3),
+body>div>div:last-child>div:nth-child(3),
+body>div>div:last-child>div:nth-last-child(3)
+{
+  background-position-x: -31vmin;
+}
+
+body>div>div:first-child>div:nth-last-child(4),
+body>div>div:last-child>div:nth-last-child(4)
+{
+  background-position-x: -9.5vmin;
+}
+
+body>div>div:first-child>div:nth-child(4),
+body>div>div:last-child>div:nth-child(4)
+{
+  background-position-x: 0.7vmin;
+}
+
+  </style>
+</head>
+<body>
+  <div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>сверстать доску</title>
+</head>
+<style>
+body {
+    margin: 0;
+}
+
+body>div {
+    outline: 1px solid red;
+    width: 100vmin;
+    height: 100vmin;
+}
+
+body>div>div {
+    outline: 1px solid blue;
+    width: 100vmin;
+    height: 10vmin;
+}
+
+    body>div::before, body>div::after {
+    display: block;
+    content: "abcdefgh";
+    height: 10vmin;
+    line-height: 10vmin;
+    font-size: 4vmin;
+    margin-left: 14vmin;
+    letter-spacing: 8.2vmin;
+    }
+
+    body>div>div> {
+    outline: 3px solid red;
+    width: 10vmin;
+    height: 10vmin;
+    display: inline-block;
+    }
+
+    body>div {
+  counter-reset: rowBefor 0 rowAfter 0;
+}
+
+body>div>div::before {
+  counter-increment: rowBefore;
+  content: counter(rowBefore);
+}
+
+body>div>div::after {
+  counter-increment: rowAfter;
+  content: counter(rowAfter);
+}
+
+
+</style>
+<body>
+  <div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>
