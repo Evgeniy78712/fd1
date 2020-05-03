@@ -11,55 +11,55 @@ body {
 }
 
 body>div {
+    font-size: 0;
+    width: 80vmin;
+    height: 80vmin;
+    padding: 10vmin;
+    background-color: #eee;
+}
+
+div>div {
     outline: 1px solid red;
-    width: 100vmin;
-    height: 100vmin;
-}
-
-body>div>div {
-    outline: 1px solid blue;
     width: 10vmin;
     height: 10vmin;
     display: inline-block;
-  
+    vertical-align: top;
+  }
+
+div>div:nth-child(16n+2),
+div>div:nth-child(16n+4),
+div>div:nth-child(16n+6),
+div>div:nth-child(16n+8),
+div>div:nth-child(16n+9),
+div>div:nth-child(16n+11),
+div>div:nth-child(16n+13),
+div>div:nth-child(16n+15) {
+background-color: red;
 }
 
-    body>div::before, body>div::after {
-    display: block;
-    content: "abcdefgh";
-    height: 10vmin;
+
+div>div:nth-of-type(8n+1)::before, 
+div>div:nth-of-type(8n)::before {
+    font-size: 5vmin;
+    content: counter(rows);
     line-height: 10vmin;
-    font-size: 4vmin;
-    margin-left: 14vmin;
-    letter-spacing: 8.2vmin;
-    }
-
-    body>div>div> {
-    outline: 3px solid red;
-    width: 10vmin;
-    height: 10vmin;
-    display: inline-block;
-    margin: 0;
-    }
-
-    
-
-
-    body>div {
-  counter-reset: rowBefor 0 rowAfter 0;
 }
 
-body>div>div::before {
-  counter-increment: rowBefore;
-  content: counter(rowBefore);
+body {
+    counter-reset: rows 0;
 }
 
-body>div>div::after {
-  counter-increment: rowAfter;
-  content: counter(rowAfter);
+div>div:nth-of-type(8n+1) {
+    counter-increment: rows;
 }
 
+div>div:nth-of-type(8n+1)::before {
+    margin-left: -6vmin;
+}
 
+div>div:nth-of-type(8n)::before {
+    margin-left: 14vmin; 
+}
 </style>
 <body>
   <div>

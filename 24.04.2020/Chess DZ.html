@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Шахматная доска</title>
+</head>
+<style>
+body {
+    margin: 0;
+}
+
+.fon {
+    position: absolute;
+    left: 10vmin;
+    top: 10vmin;
+    width: 100vmin;
+    height: 100vmin;
+    background-color: #eee;
+}
+
+body>div::before, body>div::after  {
+    display: block;
+    content: "abcdefgh";
+    height: 10vmin;
+    line-height: 10vmin;
+    font-size: 4vmin;
+    margin-left: 14vmin;
+    letter-spacing: 8.2vmin;
+}
+
+
+
+
+.block1a  {
+    position: absolute;
+    left: 10vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block1b  {
+    position: absolute;
+    left: 20vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block1c  {
+    position: absolute;
+    left: 30vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block1d  {
+    position: absolute;
+    left: 40vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block1e  {
+    position: absolute;
+    left: 50vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block1f  {
+    position: absolute;
+    left: 60vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block1g  {
+    position: absolute;
+    left: 70vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block1h  {
+    position: absolute;
+    left: 80vmin;
+    top: 10vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+
+
+.block2a  {
+    position: absolute;
+    left: 10vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block2b  {
+    position: absolute;
+    left: 20vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block2c  {
+    position: absolute;
+    left: 30vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block2d  {
+    position: absolute;
+    left: 40vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block2e  {
+    position: absolute;
+    left: 50vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block2f  {
+    position: absolute;
+    left: 60vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block2g  {
+    position: absolute;
+    left: 70vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block2h  {
+    position: absolute;
+    left: 80vmin;
+    top: 20vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+
+
+.block3a  {
+    position: absolute;
+    left: 10vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block3b  {
+    position: absolute;
+    left: 20vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block3c  {
+    position: absolute;
+    left: 30vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block3d  {
+    position: absolute;
+    left: 40vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block3e  {
+    position: absolute;
+    left: 50vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block3f  {
+    position: absolute;
+    left: 60vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block3g  {
+    position: absolute;
+    left: 70vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block3h  {
+    position: absolute;
+    left: 80vmin;
+    top: 30vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+
+
+.block4a  {
+    position: absolute;
+    left: 10vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block4b  {
+    position: absolute;
+    left: 20vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block4c  {
+    position: absolute;
+    left: 30vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block4d  {
+    position: absolute;
+    left: 40vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block4e  {
+    position: absolute;
+    left: 50vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block4f  {
+    position: absolute;
+    left: 60vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block4g  {
+    position: absolute;
+    left: 70vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block4h  {
+    position: absolute;
+    left: 80vmin;
+    top: 40vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+
+
+.block5a  {
+    position: absolute;
+    left: 10vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block5b  {
+    position: absolute;
+    left: 20vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block5c  {
+    position: absolute;
+    left: 30vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block5d  {
+    position: absolute;
+    left: 40vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block5e  {
+    position: absolute;
+    left: 50vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block5f  {
+    position: absolute;
+    left: 60vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block5g  {
+    position: absolute;
+    left: 70vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block5h  {
+    position: absolute;
+    left: 80vmin;
+    top: 50vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+
+
+.block6a  {
+    position: absolute;
+    left: 10vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block6b  {
+    position: absolute;
+    left: 20vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block6c  {
+    position: absolute;
+    left: 30vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block6d  {
+    position: absolute;
+    left: 40vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block6e  {
+    position: absolute;
+    left: 50vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block6f  {
+    position: absolute;
+    left: 60vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block6g  {
+    position: absolute;
+    left: 70vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block6h  {
+    position: absolute;
+    left: 80vmin;
+    top: 60vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+
+
+.block7a  {
+    position: absolute;
+    left: 10vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block7b  {
+    position: absolute;
+    left: 20vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block7c  {
+    position: absolute;
+    left: 30vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block7d  {
+    position: absolute;
+    left: 40vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block7e  {
+    position: absolute;
+    left: 50vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block7f  {
+    position: absolute;
+    left: 60vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block7g  {
+    position: absolute;
+    left: 70vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block7h  {
+    position: absolute;
+    left: 80vmin;
+    top: 70vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+
+
+.block8a  {
+    position: absolute;
+    left: 10vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block8b  {
+    position: absolute;
+    left: 20vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block8c  {
+    position: absolute;
+    left: 30vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block8d  {
+    position: absolute;
+    left: 40vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block8e  {
+    position: absolute;
+    left: 50vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block8f  {
+    position: absolute;
+    left: 60vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+.block8g  {
+    position: absolute;
+    left: 70vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: red;
+}
+.block8h  {
+    position: absolute;
+    left: 80vmin;
+    top: 80vmin;
+    width: 10vmin;
+    height: 10vmin;
+    outline: 1px solid red;
+    background-color: white;
+}
+
+
+div>div:nth-of-type(8n+1)::before, 
+div>div:nth-of-type(8n)::before {
+    font-size: 5vmin;
+    content: counter(rows);
+    line-height: 10vmin;
+}
+
+body {
+    counter-reset: rows 0;
+}
+
+div>div:nth-of-type(8n+1) {
+    counter-increment: rows;
+}
+
+div>div:nth-of-type(8n+1)::before {
+    margin-left: -6vmin;
+}
+
+div>div:nth-of-type(8n)::before {
+    margin-left: 14vmin; 
+}
+
+</style>
+<body>
+  <div class="fon">
+
+    <div class="block1a" 
+        style="width: 10vmin; height: 10vmin;
+        background-position: -95px 12px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block1b" 
+        style="width: 10vmin; height: 10vmin;
+        background-position: -200px 12px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block1c"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -145px 14px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block1d"
+    style="width: 10vmin; height: 10vmin;
+        background-position: 13px 14px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block1e" 
+    style="width: 10vmin; height: 10vmin;
+        background-position: -42px 12px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block1f"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -145px 14px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block1g"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -200px 12px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+        </div>
+    <div class="block1h"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -95px 12px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+
+    <div class="block2a"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2b"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2c"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2d"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2e"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2f" 
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2g"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block2h"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px 10px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+
+    <div class="block3a"></div>
+    <div class="block3b"></div>
+    <div class="block3c"></div>
+    <div class="block3d"></div>
+    <div class="block3e"></div>
+    <div class="block3f"></div>
+    <div class="block3g"></div>
+    <div class="block3h"></div>
+
+    <div class="block4a"></div>
+    <div class="block4b"></div>
+    <div class="block4c"></div>
+    <div class="block4d"></div>
+    <div class="block4e"></div>
+    <div class="block4f"></div>
+    <div class="block4g"></div>
+    <div class="block4h"></div>
+
+    <div class="block5a"></div>
+    <div class="block5b"></div>
+    <div class="block5c"></div>
+    <div class="block5d"></div>
+    <div class="block5e"></div>
+    <div class="block5f"></div>
+    <div class="block5g"></div>
+    <div class="block5h"></div>
+
+    <div class="block6a"></div>
+    <div class="block6b"></div>
+    <div class="block6c"></div>
+    <div class="block6d"></div>
+    <div class="block6e"></div>
+    <div class="block6f"></div>
+    <div class="block6g"></div>
+    <div class="block6h"></div>
+
+    <div class="block7a"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block7b"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block7c"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block7d"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block7e"
+    style="width: 10vmin; height: 10vmin;
+    background-position: -255px -45px;
+    background-repeat: no-repeat;
+    background-image: url('image.png')">
+    </div>
+    <div class="block7f"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block7g"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block7h"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -255px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+
+    <div class="block8a"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -95px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8b"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -200px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8c"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -145px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8d"
+        style="width: 10vmin; height: 10vmin;
+        background-position: 13px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8e"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -42px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8f"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -145px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8g"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -200px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+    <div class="block8h"
+        style="width: 10vmin; height: 10vmin;
+        background-position: -95px -45px;
+        background-repeat: no-repeat;
+        background-image: url('image.png')">
+    </div>
+
+  </div>
+</body>
+</html>
