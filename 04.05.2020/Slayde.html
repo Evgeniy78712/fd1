@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайды</title>
+    <style>
+    body,
+    .pins {
+        position: relative;
+    }
+        
+    .slide,
+    body>input {
+        display: none;
+    }
+        
+    #one:checked~div>.slide:nth-child(1),
+    #two:checked~div>.slide:nth-child(2),
+    #three:checked~div>.slide:nth-child(3),
+    #four:checked~div>.slide:nth-child(4),
+    #five:checked~div>.slide:nth-child(5) {
+        display: block;
+    }
+        
+    .prevSlide {
+        position: absolute;
+        top: 90px;
+        left: -10px;
+        border-right: 15px solid red;
+        border-left: 15px solid transparent;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        cursor: pointer;
+    }
+
+    .nextSlide {
+        position: absolute;
+        top: 90px;
+        left: 180px;
+        border-right: 15px solid transparent;
+        border-left: 15px solid red;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        cursor: pointer;
+       
+    } 
+           
+    .pins>label:nth-child(1),
+    .pins>label:nth-child(2),
+    .pins>label:nth-child(3),
+    .pins>label:nth-child(4),
+    .pins>label:nth-child(5) {
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: red;
+        top: -25px;
+        left: 65px;
+        cursor: pointer;
+    }
+        
+    .pins>label:nth-child(2) {
+        left: 80px;
+    }
+        
+    .pins>label:nth-child(3) {
+        left: 95px;
+    }
+        
+    .pins>label:nth-child(4) {
+        left: 110px;
+    }
+        
+    .pins>label:nth-child(5) {
+        left: 125px;
+    }
+        
+    #one:checked~div>.pins>label:nth-child(1) {
+        background-color: blue;
+    }
+        
+    #two:checked~div>.pins>label:nth-child(2) {
+        background-color: blue;
+    }
+        
+    #three:checked~div>.pins>label:nth-child(3) {
+        background-color: blue;
+    }
+        
+    #four:checked~div>.pins>label:nth-child(4) {
+        background-color: blue;
+    }
+        
+    #five:checked~div>.pins>label:nth-child(5) {
+        background-color: blue;
+    }    
+    </style>
+</head>
+
+<body>
+    <input type="radio" id="one" name="slider" checked>
+    <input type="radio" id="two" name="slider">
+    <input type="radio" id="three" name="slider">
+    <input type="radio" id="four" name="slider">
+    <input type="radio" id="five" name="slider">
+    <div id="slider">
+        <section class="slide">
+            <img src="https://vk.vkfaces.com/604829/v604829812/21e0e/jCxnyhu09r4.jpg">
+            <label for="five" class="prevSlide"></label>
+            <label for="two" class="nextSlide"></label>
+        </section>
+        <section class="slide">
+            <img src="https://pp.userapi.com/c837625/v837625883/1f184/PkpPLNNBr2U.jpg">
+            <label for="one" class="prevSlide"></label>
+            <label for="three" class="nextSlide"></label>
+        </section>
+        <section class="slide">
+            <img src="http://i.playground.ru/i/95/33/40/20/user/avatar.jpg?v1">
+            <label for="two" class="prevSlide"></label>
+            <label for="four" class="nextSlide"></label>
+        </section>
+        <section class="slide">
+            <img src="https://pp.userapi.com/c630323/v630323161/20bb3/T3Az9-vrmR4.jpg">
+            <label for="three" class="prevSlide"></label>
+            <label for="five" class="nextSlide"></label>
+        </section>
+        <section class="slide">
+            <img src="https://pp.userapi.com/c630520/v630520889/4664/wtEVyP_teoA.jpg">
+            <label for="four" class="prevSlide"></label>
+            <label for="one" class="nextSlide"></label>
+        </section>
+        <div class="pins">
+            <label for="one"></label>
+            <label for="two"></label>
+            <label for="three"></label>
+            <label for="four"></label>
+            <label for="five"></label>
+        </div>
+    </div>
+</body>
+</html>

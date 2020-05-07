@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: white;
+            background: black;
+        }
+             
+        .inner {
+            position: relative;
+            width: 614px;
+            margin: 0 auto;
+            box-shadow: 7px 5px 30px 0 rgba(72, 73, 121, 0.15);
+        }
+                
+        .calc {
+            position: relative;
+            background-image: url(assets/img/sprite.png);
+            height: 530px;
+            background-repeat: no-repeat;
+            z-index: -1;
+            background-color: white;
+        }
+        
+        .phone,
+        .car,
+        .house,
+        .plane {
+            position: absolute;
+            background-image: url(assets/img/sprite.png);
+            background-repeat: no-repeat;
+            opacity: 0.5;
+        }
+        
+        .phone {
+            width: 51px;
+            height: 85px;
+            background-position: -120px -898px;
+            left: 122px;
+            top: 373px;
+            z-index: 4;
+        }
+        
+        .car {
+            width: 161px;
+            height: 79px;
+            background-position: -162px -1420px;
+            top: 359px;
+            left: 170px;
+            z-index: 3;
+        }
+        
+        .house {
+            left: 289px;
+            width: 166px;
+            height: 77px;
+            background-position: -288px -1904px;
+            top: 315px;
+            z-index: 2;
+        }
+        
+        .plane {
+            width: 162px;
+            height: 86px;
+            background-position: -405px -2391px;
+            left: 406px;
+            top: 271px;
+            z-index: 1;
+        }
+               
+        input[name="money"] {
+            font-size: 18px;
+            position: absolute;
+            top: 52px;
+            left: 204px;
+            width: 70px;
+            background-color: transparent;
+            border: none;
+            text-align: right;
+        }
+        
+        input[id="currency_rub"],
+        input[id="currency_usd"] {
+            display: none;
+        }
+        
+        label[for="currency_rub"],
+        label[for="currency_usd"] {
+            display: none;
+            position: absolute;
+            width: 20px;
+            height: 8px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        
+        input[id="currency_rub"]:checked~label[for="currency_usd"].count_1 {
+            display: block;
+            top: 44px;
+            left: 300px;
+        }
+        
+        input[id="currency_rub"]:checked~label[for="currency_usd"].count_2 {
+            display: block;
+            top: 74px;
+            left: 300px;
+        }
+        
+        input[id="currency_usd"]:checked~label[for="currency_rub"].count_1 {
+            display: block;
+            top: 44px;
+            left: 300px;
+        }
+        
+        input[id="currency_usd"]:checked~label[for="currency_rub"].count_2 {
+            display: block;
+            top: 74px;
+            left: 300px;
+        }
+        
+        .rub,
+        .usd {
+            font-size: 18px;
+            display: none;
+            position: absolute;
+            top: 53px;
+            left: 292px;
+        }
+        
+        .rub_summ_money,
+        .usd_summ_money {
+            font-size: 18px;
+            display: none;
+            position: absolute;
+            top: 103px;
+            left: 260px;
+        }
+        
+        input[id="currency_rub"]:checked~.rub {
+            display: block;
+        }
+        
+        input[id="currency_usd"]:checked~.usd {
+            display: block;
+        }
+        
+        input[id="currency_rub"]:checked~.rub_summ_money {
+            display: block;
+        }
+        
+        input[id="currency_usd"]:checked~.usd_summ_money {
+            display: block;
+        }
+                
+        .percent {
+            display: block;
+            position: absolute;
+            font-size: 18px;
+            top: 53px;
+            left: 389px;
+        }
+        
+        .summ_rub,
+        .summ_usd {
+            display: none;
+            position: absolute;
+            font-size: 18px;
+            top: 21px;
+            left: 342px;
+            text-align: center;
+            width: 140px;
+        }
+        
+        .small {
+            font-size: 12px;
+        }
+        
+        .middle {
+            font-size: 14px;
+        }
+        
+        input[id="currency_rub"]:checked~.summ_rub {
+            display: block;
+        }
+        
+        input[id="currency_usd"]:checked~.summ_usd {
+            display: block;
+        }
+        
+        .summ_money {
+            position: absolute;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: right;
+            top: 103px;
+            left: 182px;
+        }
+        
+        .summ_text {
+            position: absolute;
+            line-height: 22px;
+            text-align: left;
+            top: 146px;
+            left: 261px;
+        }
+        /* Text Area  END*/
+        /* Month START */
+        
+        input[name="month"] {
+            display: none;
+        }
+        
+        label.month_1,
+        label.month_2,
+        label.month_3,
+        label.month_4,
+        label.month_5,
+        label.month_6,
+        label.month_7,
+        label.month_8,
+        label.month_9,
+        label.month_10,
+        label.month_11,
+        label.month_12 {
+            display: none;
+            position: absolute;
+            width: 15px;
+            height: 10px;
+            cursor: pointer;
+        }
+        
+        span.month_number_1,
+        span.month_number_2,
+        span.month_number_3,
+        span.month_number_4,
+        span.month_number_5,
+        span.month_number_6,
+        span.month_number_7,
+        span.month_number_8,
+        span.month_number_9,
+        span.month_number_10,
+        span.month_number_11,
+        span.month_number_12 {
+            display: none;
+            font-size: 18px;
+            position: absolute;
+            top: 103px;
+            left: 361px;
+            width: 25px;
+            text-align: center;
+        }
+                
+        input[id="month_1"]:checked~span.month_number_1 {
+            display: block;
+        }
+        
+        input[id="month_1"]:checked~label.month_2 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+                
+        input[id="month_2"]:checked~span.month_number_2 {
+            display: block;
+        }
+        
+        input[id="month_2"]:checked~label.month_3 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_2"]:checked~label.month_1 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+                
+        input[id="month_3"]:checked~span.month_number_3 {
+            display: block;
+        }
+        
+        input[id="month_3"]:checked~label.month_4 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_3"]:checked~label.month_2 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_3"]:checked~.calc>.phone {
+            opacity: 1;
+        }
+                
+        input[id="month_4"]:checked~span.month_number_4 {
+            display: block;
+        }
+        
+        input[id="month_4"]:checked~label.month_5 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_4"]:checked~label.month_3 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_4"]:checked~.calc>.phone {
+            opacity: 1;
+        }
+        
+        input[id="month_5"]:checked~span.month_number_5 {
+            display: block;
+        }
+        
+        input[id="month_5"]:checked~label.month_6 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_5"]:checked~label.month_4 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_5"]:checked~.calc>.phone {
+            opacity: 1;
+        }
+                
+        input[id="month_6"]:checked~span.month_number_6 {
+            display: block;
+        }
+        
+        input[id="month_6"]:checked~label.month_7 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_6"]:checked~label.month_5 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_6"]:checked~.calc>.phone,
+        input[id="month_6"]:checked~.calc>.car {
+            opacity: 1;
+        }
+               
+        input[id="month_7"]:checked~span.month_number_7 {
+            display: block;
+        }
+        
+        input[id="month_7"]:checked~label.month_8 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_7"]:checked~label.month_6 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_7"]:checked~.calc>.phone,
+        input[id="month_7"]:checked~.calc>.car {
+            opacity: 1;
+        }
+               
+        input[id="month_8"]:checked~span.month_number_8 {
+            display: block;
+        }
+        
+        input[id="month_8"]:checked~label.month_9 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_8"]:checked~label.month_7 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_8"]:checked~.calc>.phone,
+        input[id="month_8"]:checked~.calc>.car {
+            opacity: 1;
+        }
+                
+        input[id="month_9"]:checked~span.month_number_9 {
+            display: block;
+        }
+        
+        input[id="month_9"]:checked~label.month_10 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_9"]:checked~label.month_8 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_9"]:checked~.calc>.phone,
+        input[id="month_9"]:checked~.calc>.car,
+        input[id="month_9"]:checked~.calc>.house {
+            opacity: 1;
+        }
+                
+        input[id="month_10"]:checked~span.month_number_10 {
+            display: block;
+        }
+        
+        input[id="month_10"]:checked~label.month_11 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_10"]:checked~label.month_9 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_10"]:checked~.calc>.phone,
+        input[id="month_10"]:checked~.calc>.car,
+        input[id="month_10"]:checked~.calc>.house {
+            opacity: 1;
+        }
+               
+        input[id="month_11"]:checked~span.month_number_11 {
+            display: block;
+        }
+        
+        input[id="month_11"]:checked~label.month_12 {
+            display: block;
+            top: 91px;
+            left: 366px;
+        }
+        
+        input[id="month_11"]:checked~label.month_10 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_11"]:checked~.calc>.phone,
+        input[id="month_11"]:checked~.calc>.car,
+        input[id="month_11"]:checked~.calc>.house {
+            opacity: 1;
+        }
+                
+        input[id="month_12"]:checked~span.month_number_12 {
+            display: block;
+        }
+        
+        input[id="month_12"]:checked~label.month_11 {
+            display: block;
+            top: 124px;
+            left: 366px;
+        }
+        
+        input[id="month_12"]:checked~.calc>.phone,
+        input[id="month_12"]:checked~.calc>.car,
+        input[id="month_12"]:checked~.calc>.house,
+        input[id="month_12"]:checked~.calc>.plane {
+            opacity: 1;
+        }
+            
+        </style>
+</head>
+
+<body>
+    <div class="inner">
+
+        <input type="text" name="money" maxlength="7" value="3000">
+        <input type="radio" name="currency" id="currency_rub" value="RUB" checked>
+        <input type="radio" name="currency" id="currency_usd" value="USD">
+        <label for="currency_rub" class="count_1"></label>
+        <label for="currency_rub" class="count_2"></label>
+        <label for="currency_usd" class="count_1"></label>
+        <label for="currency_usd" class="count_2"></label>
+        <label for="currency_rub"></label>
+        <label for="currency_usd"></label>
+        <span class="rub">RUB</span>
+        <span class="usd">USD</span>
+       
+        <span class="summ_rub">$0 <span class="small">руб.</span> 00.<span class="middle">00</span> <span class="small">коп.</span></span>
+        <span class="summ_usd">$0.00</span>
+        <span class="percent">10%</span>
+        <span class="summ_money">3,300.00<br><br>300.00<br>10.00<br>0.42<br>0.01<br>0.00</span>
+        <span class="rub_summ_money">RUB</span>
+        <span class="usd_summ_money">USD</span>
+        <span class="summ_text">в месяц<br>в день<br>в час<br>в минуту<br>в секунду</span>
+        
+        <input type="radio" name="month" id="month_1" value="1" checked>
+        <input type="radio" name="month" id="month_2" value="2">
+        <input type="radio" name="month" id="month_3" value="3">
+        <input type="radio" name="month" id="month_4" value="4">
+        <input type="radio" name="month" id="month_5" value="5">
+        <input type="radio" name="month" id="month_6" value="6">
+        <input type="radio" name="month" id="month_7" value="7">
+        <input type="radio" name="month" id="month_8" value="8">
+        <input type="radio" name="month" id="month_9" value="9">
+        <input type="radio" name="month" id="month_10" value="10">
+        <input type="radio" name="month" id="month_11" value="11">
+        <input type="radio" name="month" id="month_12" value="12">
+        <label for="month_1" class="month_1"></label>
+        <label for="month_2" class="month_2"></label>
+        <label for="month_3" class="month_3"></label>
+        <label for="month_4" class="month_4"></label>
+        <label for="month_5" class="month_5"></label>
+        <label for="month_6" class="month_6"></label>
+        <label for="month_7" class="month_7"></label>
+        <label for="month_8" class="month_8"></label>
+        <label for="month_9" class="month_9"></label>
+        <label for="month_10" class="month_10"></label>
+        <label for="month_11" class="month_11"></label>
+        <label for="month_12" class="month_12"></label>
+        <span class="month_number_1">1</span>
+        <span class="month_number_2">2</span>
+        <span class="month_number_3">3</span>
+        <span class="month_number_4">4</span>
+        <span class="month_number_5">5</span>
+        <span class="month_number_6">6</span>
+        <span class="month_number_7">7</span>
+        <span class="month_number_8">8</span>
+        <span class="month_number_9">9</span>
+        <span class="month_number_10">10</span>
+        <span class="month_number_11">11</span>
+        <span class="month_number_12">12</span>
+        
+        <div class="calc">
+            <div class="phone"></div>
+            <div class="car"></div>
+            <div class="house"></div>
+            <div class="plane"></div>
+        </div>
+    </div>
+</body>
+</html>
