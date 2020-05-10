@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media</title>
+<style>
+
+      div {
+          width: 300px;
+          display: inline-block;
+      }
+
+      @media screen and (max-width: 300px) {
+        div:nth-child(1) {
+          display: inline-block;
+          background-color: red;
+          transition: 2s;
+        }
+        div:nth-child(2) {
+          display: none;
+        }
+        div:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: 300px) and (max-width: 600px) {
+        div:nth-child(1) {
+          display: none;
+        }
+        div:nth-child(2) {
+          display: inline-block;
+          background-color:blue;
+          transition: 2s;
+        }
+        div:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: 600px) {
+        div:nth-child(1) {
+          display: none;
+        }
+        div:nth-child(2) {
+          display: none;
+        }
+        div:nth-child(3) {
+          display: inline-block;
+          background-color: green;
+          transition: 2s;
+        }
+      } 
+
+</style>
+</head>
+<body>
+
+ <div>
+    < 300 
+ </div>  
+ <div>
+    > 300 < 600
+ </div>
+ <div>
+    > 600
+ </div>
+
+</body>
+</html>
