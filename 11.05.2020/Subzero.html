@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Субзеро</title>
+</head>
+<style>
+.subzero {
+  width: 66px;
+  height: 135px;
+  background: url(sheet.jpg);
+  animation: myMovie 1s steps(6) infinite alternate;
+  animation-play-state: paused;
+}
+
+.subzero:hover {
+  animation-play-state: running;
+}
+
+@keyframes myMovie {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -396px 0;
+  }
+}
+</style>
+
+<body>
+    <div class="subzero">
+    </div>  
+</body>
+</html>

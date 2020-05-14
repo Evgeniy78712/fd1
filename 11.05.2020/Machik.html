@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мячик</title>
+</head>
+<style>
+p {
+  animation: translating 4s linear 0s infinite;
+  background: red;
+  border-radius: 60px;
+  color: white;
+  height: 120px;
+  line-height: 120px;
+  margin: 0;
+  text-align: center;
+  width: 120px;
+}
+@keyframes translating {
+  0%  { transform: translate(0, 0);}
+  25% { transform: translate(240px, 0);}
+  50% { transform: translate(240px, 140px);}
+  75% { transform: translate(0, 140px);}
+  100% { transform: translate(0, 0);}
+}
+
+</style>
+
+<body>
+   <p>Мячик</p>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прыгающий мячик</title>
+</head>
+<style>
+.ball {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 100%;
+    animation: bounce 3s linear infinite,
+    moveLeft 10s linear infinite;
+}
+   
+@keyframes bounce {
+    0% { bottom: 100%; }
+    25% { bottom: 0; width: 100px; height: 100px; }
+    30% { bottom: 0; width: 110px; height: 25px; }
+    35% { bottom: 0; width: 100px; height: 100px; }
+    70% { bottom: 100%; }
+    100% { bottom: 100%; }
+}
+
+@keyframes moveLeft {
+from {left: 0;}
+to {left: 100%;}
+}
+</style>
+
+<body>
+  <div class="ball"></div>  
+</body>
+</html>
