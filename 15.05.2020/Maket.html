@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./flex.css">
+    <title>Макет</title>
+</head>
+<style>
+    header, footer, div, main, article, aside, ul, li, span, p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    hyphens: auto;
+}
+body {
+    margin: 0;
+}
+header {
+    min-height: 18vh;
+    display: flex;
+    justify-content: space-around;
+}
+header>div {
+    color: white;
+    background-color: rgb(119, 119, 119);
+    margin: 0.5vw;
+    padding: 1vw;
+}
+header>div:nth-child(1) {
+    flex-grow: 0.5;
+}
+header>div:nth-child(2) {
+    flex-grow: 1;
+}
+header>div:nth-child(3) {
+    display: flex;
+    flex-grow: 3;
+    align-items: center;
+    justify-content: flex-end;
+}
+header>div:nth-child(3)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    margin-top: -5.5vmin;
+    margin-left: -60vmin;
+}
+div>span>a {
+    color: white;
+}
+a:hover {
+    color: red;
+}
+header>div:nth-child(1),
+header>div:nth-child(2),
+header>div:nth-child(3)::before,
+aside>div:first-child::before,
+aside>div:last-child,
+article>div:first-child>ul::before,
+article>ul>li,
+article>div:nth-child(3)::before,
+article>div:last-child::before,
+footer>div:first-child::before,
+footer>div:nth-child(2)::before,
+footer>div:nth-child(3)::before,
+footer>div:last-child::before {
+    font-size: 20px;
+    text-shadow: 3px 3px 5px black;
+}
+main {
+    display: flex;
+    min-height: 75vh;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+aside {
+    display: flex;
+    margin: 1vh;
+    flex-basis: 16vw;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+aside>div {
+    color: white;
+    background-color: rgb(119, 119, 119);
+    padding: 1vw;
+}
+aside>div:first-child {
+    flex-basis: 100%;
+    margin-bottom: 50vh;
+}
+aside>div:first-child::before {
+    content: "4";
+    display: block;
+    position: absolute;
+    margin: -5px 0 0 -3px;
+}
+aside>div:last-child {
+    flex-basis: 100%;
+    min-height: 15vh;
+}
+article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-basis: 59vw;
+    flex-grow: 1;
+    margin: 1vw;
+}
+article>div {
+    background-color: rgb(220, 220, 220);
+    color: rgb(119, 119, 119);
+}
+article>div:first-child {
+    flex-basis: 100%;
+    min-height: 17vh;
+}
+article>div:first-child>ul {
+    margin-left: -1vw;
+}
+article>div:first-child>ul::before {
+    content: "5";
+    display: block;
+    position: absolute;
+    margin: -5px 0 0 -7px;
+    color: white;
+}
+article>div:first-child>ul>li {
+    margin-left: 3vw;
+}
+article>ul {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-basis: 100%;
+    padding: 0;
+    flex-grow: 1;
+}
+article>ul>li {
+    margin-bottom: 1.5vh;
+    margin-right: 1vw;
+    flex-basis: calc(100% / 6.02);
+    min-height: 15vh;
+    padding: 1vw 0 0 1vw;
+    background-color: rgb(220, 220, 220);
+    color: white;
+}
+article>div:nth-child(3),
+article>div:last-child {
+    flex-basis: 29vw;
+    min-height: 25vh;
+    flex-grow: 1;
+}
+article>div:nth-child(3) {
+    margin-right: 1vw;
+}
+article>div:nth-child(3)>p,
+article>div:last-child>p {
+    padding: 1vh 1vw;
+}
+article>div:nth-child(3)::before,
+article>div:last-child::before {
+    display: block;
+    position: absolute;
+    margin: 5px 0 0 5px;
+    color: white;
+}
+article>div:nth-child(3)::before {
+    content: "8";
+}
+article>div:last-child::before {
+    content: "9";
+}
+footer {
+    height: 30vh;
+    display: flex;
+    flex-flow: column wrap;
+}
+footer>div {
+    margin: 1vw;
+    background-color: rgb(119, 119, 119);
+}
+footer>div:first-child {
+    flex-grow: 1;
+}
+footer>div:first-child::before {
+    content: "10";
+    display: block;
+    position: absolute;
+    margin: 5px 0 0 0;
+    color: white;
+}
+footer>div:first-child>ul>li {
+    list-style-type: none;
+    margin-top: -1.2vh;
+}
+footer>div:first-child>ul>li>p {
+    color: white;
+}
+footer>div:first-child>ul>li:nth-child(n+8)>p:nth-child(-n+14) {
+    margin-bottom: -9vh;
+    margin-left: 10vw;
+}
+footer>div:nth-child(2) {
+    height: 100%;
+    flex-grow: 1;
+}
+footer>div:nth-child(n+3):nth-child(-n+4) {
+    flex-grow: 1;
+}
+footer>div:nth-child(2)::before,
+footer>div:nth-child(3)::before,
+footer>div:last-child::before {
+    display: block;
+    position: absolute;
+    color: white;
+}
+footer>div:nth-child(2)::before {
+    content: "11";
+}
+footer>div:nth-child(3)::before {
+    content: "12";
+}
+footer>div:last-child::before {
+    content: "13";
+}
+footer>div:nth-child(2)>ul {
+    color: white;
+}
+footer>div:nth-child(2)>ul>li {
+    margin-top: -1.2vh;
+}
+footer>div:nth-last-child(2),
+footer>div:last-child {
+    flex-grow: 1;
+}
+@media all and (max-width: 320px) {
+    header>div:nth-child(2),
+    aside>div:last-child {
+        display: none;
+    }
+    header, main, aside, article, footer, article>ul {
+        flex-direction: column;
+        width: 95vw;
+        height: auto;
+    }
+    aside>div:first-child {
+        margin-bottom: 0.5vh;
+    }
+    article>ul>li {
+        flex-basis: 25vw;
+    }
+    article>div:nth-child(3),
+    article>div:last-child {
+        min-height: auto;
+        margin-bottom: 1vh;
+    }
+    article>div:nth-child(3) {
+        margin-bottom: 1vh;
+    }
+    article>div:nth-child(3)>p,
+    article>div:last-child>p {
+        margin: 1vw;
+    }
+    footer>div:first-child {
+        order: 3;
+    }
+    footer>div:nth-child(2) {
+        order: 4;
+    }
+    footer>div:nth-child(3) {
+        order: 1;
+    }
+    footer>div:nth-child(4) {
+        order: 2;
+    }
+    footer>div:nth-child(n+1):nth-child(-n+2) {
+        min-height: 30vh;
+    }
+    footer>div:nth-child(n+1):nth-child(-n+4) {
+        width: auto;
+    }
+    footer>div:first-child>ul>li:nth-child(n+8)>p:nth-child(-n+14) {
+        margin-bottom: -9vh;
+        margin-left: 30vw;
+    }
+    footer>div:nth-child(n+3):nth-child(-n+4) {
+        min-height: 10vh;
+    }
+}
+@media all and (min-width: 321px) and (max-width: 640px) {
+    header>div:nth-child(2),
+    aside>div:last-child {
+        display: none;
+    }
+    header, main, article>ul {
+        flex-direction: column;
+    }
+    aside>div:first-child {
+        margin-bottom: 0.5vh;
+    }
+    article>ul>li {
+        flex-basis: 25vw;
+    }
+    article>div:nth-child(n+3):nth-child(-n+4) {
+        flex-grow: 1;
+    }
+    footer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    footer>div:nth-child(n+1):nth-child(-n+2) {
+        min-height: 30vh;
+    }
+    footer>div:nth-child(n+1):nth-child(-n+4) {
+        min-width: 42.5vw;
+    }
+    footer>div:first-child>ul>li:nth-child(n+8)>p:nth-child(-n+14) {
+        margin-bottom: -9vh;
+        margin-left: 15vw;
+    }
+    footer>div:nth-child(n+3):nth-child(-n+4) {
+        min-height: 10vh;
+        background: rgb(119, 119, 119);
+    }
+}
+@media all and (min-width: 1200px) {
+    body {
+        margin: auto;
+        max-width: 1200px;
+    }
+}
+    
+   </style>
+<body>
+	<div class="wrapper">
+		<header>
+			<div>1</div>
+			<div>2</div>
+			<div><span>+7 (499) 346-21-31<br><a href="#">manager@pixelplus.ru</a><br><a href="#">www.pixelplus.ru</a></span></div>
+		</header>
+		<hr>
+		<main>
+			<aside>
+				<div><strong>Создание сайтов</strong><br>Изготовлени &laquo;под ключ&raquo;.<br>Как мы работаем <br>Интеграция с 1С<br>Поддержка сайтов<br>Создание сайтов на Битркс<br>Модули Битрикс<br>Купить Битрикс<br>Дизайн сайтов<br>Редизайн сайтов<br>Интернет-магазины<br>Создание логотипов</div>
+				<div>7</div>
+			</aside>
+			<article>
+				<div>
+                    <ul type="square"><strong>PSD файл с макетом. Макет разбит по слоям и сгруппирован по папкам:</strong><br><p></p>
+                        <li><strong>number</strong> &ndash; нумерация блоков (номера блоков верстать не нужно)</li>
+                        <li><strong>text</strong> &ndash; текстовые блоки (шрифт Arial, размер 14 пикселей, межстрочное растояние 22 пикселя)</li>
+                        <li><strong>head</strong> &ndash; шапка сайта</li>
+                        <li><strong>content</strong> &ndash; контентная область, которая в свою очередь делится на <strong>left</strong> и <strong>center</strong></li>
+                        <p>Текстовые описания задания и требования.</p>
+                    </ul>
+                </div>
+				<ul>
+					<li>6</li>
+					<li>6</li>
+					<li>6</li>
+					<li>6</li>
+					<li>6</li>
+					<li>6</li>
+					<li>6</li>
+				</ul>
+				<div><p>Студия &laquo;Пиксель Плюс&raquo; разработает полнофункциональный продукт ориентированный на целевую аудиторию и эффективно решающий поставленные перед ним маркетинговые задачи. Опыт работ и использование собственных технологий, позволяет предлагать услугу сайта в Москве в разумные сроки.</p></div>
+				<div><p>Поисковое продвижение (раскрутка) ведется по коммерческим запросам, что позволяет многократно увеличить количество продаж с сайта при разумном рекламном беюджете.</p></div>
+			</article>
+        </main>
+        <hr>
+		<footer>
+			<div>
+                
+            </div>
+			<div>
+                <ul type="square">
+                    <li><p>Поисковое продвижение сайтов</p></li>
+                    <li><p>Тариф &laquo;Старт&raquo;</p></li>
+                    <li><p>Тариф &laquo;Продвижение Плюс&raquo;</p></li>
+                    <li><p>Тариф &laquo;Интернет&ndash;магазин&raquo;</p></li>
+                    <li><p>Тариф &laquo;Эксклюзив&raquo;</p></li>
+                    <li><p>Тариф &laquo;Контекст &#8330; SEO&raquo;</p></li>
+                    <li><p>Тариф &laquo;Регион&raquo;</p></li>
+                </ul>
+            </div>
+			<div></div>
+			<div></div>
+		</footer>
+	</div>
+</body>
+</html>
