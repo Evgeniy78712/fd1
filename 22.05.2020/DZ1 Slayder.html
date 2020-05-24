@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайдер по БЭМ</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+        
+        input {
+            display: none;
+        }
+        
+        .slider {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            }
+        
+        .slider__item {
+            position: absolute;
+            top: 0;
+            transform: translateX(200px);
+            width: 200px;
+            height: 200px;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        
+        .slider>.slider__item:nth-child(2) {
+            transform: translateX(-200px);
+        }
+        
+        .slider>.slider__item:nth-child(3) {
+            transform: translateX(0);
+            transform: translateY(200px);
+        }
+        
+        .slider>.slider__item:nth-child(4) {
+            transform: translateX(-200px);
+        }
+        
+        .slider>.slider__item:nth-child(5) {
+            transform: translateX(0);
+            transform: translateY(-200px);
+        }
+        
+        .slider__button {
+            position: absolute;
+            top: calc(50% - 10px);
+            height: 20px;
+            width: 20px;
+            border-radius: 50px;
+            background-color: white;
+        }
+        
+        .slider__button>span {
+            display: block;
+            border-top: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid transparent;
+            position: absolute;
+            top: 5px;
+            left: 1px;
+        }
+        
+        .slider__button-left {
+            left: 0;
+        }
+        
+        .slider__button-left>span {
+            border-right: 8px solid black;
+        }
+        
+        .slider__button-right {
+            right: 0;
+        }
+        
+        .slider__button-right>span {
+            border-left: 8px solid black;
+            left: 8px;
+        }
+        
+        .slider__label {
+            position: absolute;
+            bottom: 10px;
+            width: 30%;
+            height: 10px;
+            left: 35%;
+        }
+        
+        .slider__label>label {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+            left: 0;
+        }
+        
+        .slider__label>label:nth-child(2) {
+            left: 12px;
+        }
+        
+        .slider__label>label:nth-child(3) {
+            left: 24px;
+        }
+        
+        .slider__label>label:nth-child(4) {
+            left: 36px;
+        }
+        
+        .slider__label>label:nth-child(5) {
+            left: 48px;
+        }
+        
+        input[id="one"]:checked~.slider>.slider__item:nth-child(1) {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        input[id="one"]:checked~.slider>.slider__label>label:nth-child(1) {
+            background-color: red;
+        }
+        
+        input[id="two"]:checked~.slider>.slider__item:nth-child(2) {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        input[id="two"]:checked~.slider>.slider__label>label:nth-child(2) {
+            background-color: red;
+        }
+        
+        input[id="three"]:checked~.slider>.slider__item:nth-child(3) {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        input[id="three"]:checked~.slider>.slider__label>label:nth-child(3) {
+            background-color: red;
+        }
+        
+        input[id="four"]:checked~.slider>.slider__item:nth-child(4) {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        input[id="four"]:checked~.slider>.slider__label>label:nth-child(4) {
+            background-color: red;
+        }
+        
+        input[id="five"]:checked~.slider>.slider__item:nth-child(5) {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        
+        input[id="five"]:checked~.slider>.slider__label>label:nth-child(5) {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="radio" id="one" name="dartSlider" checked>
+    <input type="radio" id="two" name="dartSlider">
+    <input type="radio" id="three" name="dartSlider">
+    <input type="radio" id="four" name="dartSlider">
+    <input type="radio" id="five" name="dartSlider">
+    <div class="slider" id="slider">
+        <section class="slider__item">
+            <img src="https://vk.vkfaces.com/604829/v604829812/21e0e/jCxnyhu09r4.jpg">
+            <label for="five" class="slider__button slider__button-left"><span></span></label>
+            <label for="two" class="slider__button slider__button-right"><span></span></label>
+        </section>
+        <section class="slider__item">
+            <img src="https://pp.userapi.com/c837625/v837625883/1f184/PkpPLNNBr2U.jpg">
+            <label for="one" class="slider__button slider__button-left"><span></span></label>
+            <label for="three" class="slider__button slider__button-right"><span></span></label>
+        </section>
+        <section class="slider__item">
+            <img src="http://i.playground.ru/i/95/33/40/20/user/avatar.jpg?v1">
+            <label for="two" class="slider__button slider__button-left"><span></span></label>
+            <label for="four" class="slider__button slider__button-right"><span></span></label>
+        </section>
+        <section class="slider__item">
+            <img src="https://pp.userapi.com/c630323/v630323161/20bb3/T3Az9-vrmR4.jpg">
+            <label for="three" class="slider__button slider__button-left"><span></span></label>
+            <label for="five" class="slider__button slider__button-right"><span></span></label>
+        </section>
+        <section class="slider__item">
+            <img src="https://pp.userapi.com/c630520/v630520889/4664/wtEVyP_teoA.jpg">
+            <label for="four" class="slider__button slider__button-left"><span></span></label>
+            <label for="one" class="slider__button slider__button-right"><span></span></label>
+        </section>
+        <div class="slider__label">
+            <label for="one"></label>
+            <label for="two"></label>
+            <label for="three"></label>
+            <label for="four"></label>
+            <label for="five"></label>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
