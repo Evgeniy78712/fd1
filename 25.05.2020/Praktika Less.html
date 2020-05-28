@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Препроцессор Less</title>
+    <style>
+        @fontColor: #f203d5;
+        @transitionTimi: .5s;
+        @gradientStart: #121;
+        @gradientEnd: #72F;
+
+        .example (@heigh: 280px, @tTime: 0.5s {
+    display: -ms-grid;
+    display: grid;
+    -webkit-transition: all @tTime;
+    transition: all @tTime;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+    background: linear-gradient(to bottom, @gradientStar white, black);
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header class="heder">
+        <div class="logo"></div>
+    </header>
+    <div class="logo"></div>
+    <h1>Заголовок</h1>
+
+    <div class="btn"></div>
+    <div class="btn"></div>
+    <div class="btn"></div>
+    <div class="btn"></div>
+    <div class="btn"></div>
+    <div class="btn"></div>
+
+</body>
+</html>

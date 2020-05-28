@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блоки</title>
+    <style>
+        body {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.14fr 10px 1fr 10px 0.28fr;
+    grid-template-areas: "header"
+                         "lineOne"                         
+                         "mainInfo"
+                         "lineTwo"
+                         "footer";
+}
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 0.25fr 0.5fr 1fr;
+    grid-template-rows: 0.87fr;
+    grid-column-gap: 10px;
+    grid-template-areas: "header-blockOne header-blockTwo header-blockThree";
+    border-bottom: 1px solid #888;
+}
+.header__blockOne {
+    grid-area: header-blockOne;
+    background: #888;
+}
+.header__blockTwo {
+    grid-area: header-blockTwo;
+    background: #888;
+}
+.header__blockThree {
+    grid-area: header-blockThree;
+    background: #888;
+}
+.lineOne {
+    grid-area: lineOne;
+}
+.mainInfo {
+    grid-area: mainInfo;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-template-areas: "asideMenu services";
+}
+.asideMenu {
+    grid-area: asideMenu;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.4fr;
+    grid-row-gap: 16em;
+    grid-template-areas: "asideMenu-Menu"
+                         "asideMenu-Ad";
+}
+.asideMenu__Menu {
+    grid-area: asideMenu-Menu;
+    background: #888;
+    margin-top: 0;
+    padding-left: 0;
+}
+.asideMenu__Ad {
+    grid-area: asideMenu-Ad;
+    background: #888;
+}
+.services {
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.6fr 1fr 0.7fr;
+    grid-gap: 3px 10px;
+    grid-template-areas: "services-mainText services-mainText"
+                         "services-offers services-offers"
+                         "services-addOne services-addTwo";
+}
+.services__mainText {
+    grid-area: services-mainText;
+    background: #ddd;
+}
+.services__offers {
+    grid-area: services-offers;
+    list-style-type: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 125px 125px;
+    grid-gap: 10px;
+    grid-template-areas: "offers-element offers-element offers-element offers-element . "
+                         "offers-element offers-element offers-element . . ";
+}
+.offers__element {
+    background: #ddd;
+}
+.services__addOne {
+    grid-area: services-addOne;
+    background: #ddd;
+}
+.services__addTwo {
+    grid-area: services-addTwo;
+    background: #ddd;
+}
+.lineTwo {
+    grid-area: lineTwo;
+}
+.footer {
+    grid-area: footer;
+    border-top: 1px solid #888;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas: "footer-address footer-contacts footer-map"
+                         "footer-address footer-contacts footer-partners";
+}
+.footer__address {
+    grid-area: footer-address;
+    background: #888;
+}
+.footer__contacts {
+    grid-area: footer-contacts;
+    background: #888;
+}
+.footer__map {
+    grid-area: footer-map;
+    background: #888;
+}
+.footer__partners {
+    grid-area: footer-partners;
+    background: #888;
+}
+@media screen and (min-width: 1200px) {
+    body {
+        max-width: 800px;
+        margin: 10px auto;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+    .header__blockTwo,
+    .services__mainText,
+    .footer__map,
+    .footer__partners {
+        display: none;
+    }
+    body {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.10fr 10px 1fr 10px 0.20fr;
+        grid-template-areas: "header"
+                             "lineOne"
+                             "mainInfo"
+                             "lineTwo"
+                             "footer";
+    }
+    .header {
+        grid-template-columns: 0.3fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 10px;
+        grid-template-areas: "header-blockOne header-blockThree";
+    }
+    .mainInfo {
+      position: relative;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-column-gap: 10px;
+        grid-template-areas: "asideMenu"
+                             "services";
+    }
+    .asideMenu {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 10px;
+        grid-template-areas: "asideMenu-Menu"
+                             /*"services-offers"
+                             "asideMenu-Ad"*/;
+    }
+    .asideMenu__Ad {
+        background: #ddd;
+        /* border-bottom: 1px solid #888; */
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        top: 979px;
+    }
+    .services {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 150px 1fr 1fr;
+        grid-gap: 10px;
+        grid-template-areas: "services-offers"
+                              "."
+                             "services-addOne"
+                             "services-addTwo";
+    }
+    .services__addOne,
+    .services__addTwo {
+        background: #888;
+    }
+    .services__offers {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px 100px;
+        grid-gap: 10px;
+        grid-template-areas: "offers-element offers-element offers-element"
+                             "offers-element offers-element offers-element"
+                             "offers-element . . ";
+    }
+    .services__addOne,
+    .services__addTwo {
+        background: #888;
+    }
+    .footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-row-gap: 5px;
+        grid-template-areas: "footer-address"
+                             "footer-contacts";
+    }
+}
+@media screen and (min-width: 0px) and (max-width: 640px) {
+    .header__blockTwo,
+    .lineOne,
+    .lineTwo,
+    .asideMenu__Ad,
+    .footer__address,
+    .footer__contacts {
+        display: none;
+    }
+    body{
+        margin: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 1fr 0.1fr;
+        grid-row-gap: 10px;
+        grid-template-areas: "header"
+                             "mainInfo"
+                             "footer";
+    }
+    .header {
+        border-bottom: none;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-row-gap: 10px;
+        grid-template-areas: "header-blockOne"
+                             "header-blockThree";
+    }
+    .mainInfo {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-row-gap: 10px;
+        grid-template-areas: "services"
+                             "asideMenu";
+    } 
+    .asideMenu {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "asideMenu-Menu";
+    }
+    .asideMenu__Menu {
+        background: #ddd;
+    }
+    .services {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.25fr 1fr 0.1fr 0.1fr;
+        grid-row-gap: 10px;
+        grid-template-areas: "services-mainText"
+                             "services-offers"
+                             "services-addOne"
+                             "services-addTwo";
+    }
+    .services__mainText {
+        background: #888;
+    }
+    .services__offers {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, calc(45vw - 18px));
+        grid-gap: 10px;
+        justify-content: center;
+        grid-template-areas: "offers-element offers-element"
+                             "offers-element offers-element"
+                             "offers-element offers-element"
+                             "offers-element . ";
+    }
+    .offers__element {
+        border: 1px solid black;
+        border-radius: 50%;
+        text-align: center;
+    }
+    .footer {
+        border-top: none;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.5fr;
+        grid-column-gap: 10px;
+        grid-template-areas: "footer-map footer-partners";
+    }   
+    .footer__map,
+    .footer__partners {
+        background: #ddd;
+    }
+}
+    </style>
+</head>
+    <body class="body">
+        <header class="header">
+            <div class="header__blockOne">1</div>
+            <div class="header__blockTwo">2</div>
+            <div class="header__blockThree">3</div>
+        </header>
+        <hr class="lineOne">
+        <main class="mainInfo">
+            <aside class="asideMenu">
+                <ul class="asideMenu__Menu">4</ul>
+                <div class="asideMenu__Ad">7</div>
+            </aside>
+            <section class="services">
+                <article class="services__mainText">5</article>
+                <ul class="services__offers">
+                    <li class="offers__element">6</li>
+                    <li class="offers__element">6</li>
+                    <li class="offers__element">6</li>
+                    <li class="offers__element">6</li>
+                    <li class="offers__element">6</li>
+                    <li class="offers__element">6</li>
+                    <li class="offers__element">6</li>
+                </ul>
+                <div class="services__addOne">8</div>
+                <div class="services__addTwo">9</div>
+            </section>
+        </main>
+        <hr class="lineTwo">
+        <footer class="footer">
+            <div class="footer__address">10</div>
+            <div class="footer__contacts">11</div>
+            <div class="footer__map">12</div>
+            <div class="footer__partners">13</div>
+        </footer>
+    </body>
+</html>
