@@ -1,0 +1,65 @@
+$navItems: 10;
+$navItemWidth: 150px;
+$navItemHeight: 150px;
+$navItemBorderRadius: 50%;
+$navItemBgColor: #ccc;
+$navItemTransformOriginX: 250px;
+$navItemTransformOriginY: 250px;
+.navBar {
+    outline: 1px solid blue;
+    position: relative;
+    &__item {
+        transition: 2s;
+        // outline: 1px solid red;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        transform-origin: $navItemTransformOriginX $navItemTransformOriginY;
+        &_round {
+            width: $navItemWidth;
+            height: $navItemHeight;
+            border-radius: $navItemBorderRadius;
+            background-color: $navItemBgColor;
+        }
+        @for $i from 1 through $navItems {
+            &_number-#{$i} {
+                transform: rotate($i * 360deg / $navItems);
+            }
+        }
+    }
+    &__itemLabel {
+        display: block;
+        width: $navItemWidth;
+        height: $navItemHeight;
+        line-height: $navItemHeight;
+        text-align: center;
+        @for $i from 1 through $navItems {
+            &_number-#{$i} {
+                transform: rotate($i * -360deg / $navItems);
+            }
+        }
+    }
+    @for $i from 1 through $navItems {
+        #navBarRadio-#{$i}:checked~div>label[for=navBarRadio-#{$i}] {
+            background-color: blue;
+        }
+        @for $j from 1 through $navItems {
+            #navBarRadio-#{$i}:checked~.navBar__item_number-#{$j} {
+                transform: rotate(($i - $j + 1) * 360deg / $navItems);
+            }
+        }
+    }
+
+
+
+
+
+// .axis {
+//     width: 10px;
+//     height: 10px;
+//     background-color: red;
+//     position: absolute;
+//     left: $navItemTransformOriginX + 100px - 5px;
+//     top: $navItemTransformOriginY + 100px - 5px;
+//     border-radius: 50%;
+// }

@@ -1,0 +1,171 @@
+.navBar {
+  outline: 1px solid blue;
+  position: relative;
+}
+
+.navBar__item {
+  -webkit-transition: 2s;
+  transition: 2s;
+  outline: 1px solid red;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  -webkit-transform-origin: 200px 200px;
+          transform-origin: 200px 200px;
+}
+
+.navBar__item_round {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.navBar__item_number-1 {
+  -webkit-transform: rotate(36deg);
+          transform: rotate(36deg);
+}
+
+.navBar__item_number-2 {
+  -webkit-transform: rotate(72deg);
+          transform: rotate(72deg);
+}
+
+.navBar__item_number-3 {
+  -webkit-transform: rotate(108deg);
+          transform: rotate(108deg);
+}
+
+.navBar__item_number-4 {
+  -webkit-transform: rotate(144deg);
+          transform: rotate(144deg);
+}
+
+.navBar__item_number-5 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.navBar__item_number-6 {
+  -webkit-transform: rotate(216deg);
+          transform: rotate(216deg);
+}
+
+.navBar__item_number-7 {
+  -webkit-transform: rotate(252deg);
+          transform: rotate(252deg);
+}
+
+.navBar__item_number-8 {
+  -webkit-transform: rotate(288deg);
+          transform: rotate(288deg);
+}
+
+.navBar__item_number-9 {
+  -webkit-transform: rotate(324deg);
+          transform: rotate(324deg);
+}
+
+.navBar__item_number-10 {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.navBar__itemLabel {
+  display: block;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.navBar__itemLabel_number-1 {
+  -webkit-transform: rotate(-36deg);
+          transform: rotate(-36deg);
+}
+
+.navBar__itemLabel_number-2 {
+  -webkit-transform: rotate(-72deg);
+          transform: rotate(-72deg);
+}
+
+.navBar__itemLabel_number-3 {
+  -webkit-transform: rotate(-108deg);
+          transform: rotate(-108deg);
+}
+
+.navBar__itemLabel_number-4 {
+  -webkit-transform: rotate(-144deg);
+          transform: rotate(-144deg);
+}
+
+.navBar__itemLabel_number-5 {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.navBar__itemLabel_number-6 {
+  -webkit-transform: rotate(-216deg);
+          transform: rotate(-216deg);
+}
+
+.navBar__itemLabel_number-7 {
+  -webkit-transform: rotate(-252deg);
+          transform: rotate(-252deg);
+}
+
+.navBar__itemLabel_number-8 {
+  -webkit-transform: rotate(-288deg);
+          transform: rotate(-288deg);
+}
+
+.navBar__itemLabel_number-9 {
+  -webkit-transform: rotate(-324deg);
+          transform: rotate(-324deg);
+}
+
+.navBar__itemLabel_number-10 {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.navBar #navBarRadio-1:checked ~ div > label[for=navBarRadio-1] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-2:checked ~ div > label[for=navBarRadio-2] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-3:checked ~ div > label[for=navBarRadio-3] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-4:checked ~ div > label[for=navBarRadio-4] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-5:checked ~ div > label[for=navBarRadio-5] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-6:checked ~ div > label[for=navBarRadio-6] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-7:checked ~ div > label[for=navBarRadio-7] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-8:checked ~ div > label[for=navBarRadio-8] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-9:checked ~ div > label[for=navBarRadio-9] {
+  background-color: blue;
+}
+
+.navBar #navBarRadio-10:checked ~ div > label[for=navBarRadio-10] {
+  background-color: blue;
+}
+/*# sourceMappingURL=main.css.map */
