@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета 1</title>
+</head>
+<body>
+    <script>
+     
+        var surname = prompt("Введите Вашу фамилию");
+        var name = prompt("Введите Ваше имя");
+        var patronymic = prompt("Введите Ваше отчество");
+        var ageYears = Number(prompt("Ваш возраст в годах?"));
+        var sex = confirm("Ваш пол - мужской?")
+        var man;
+        if (sex == true) {
+            man = "мужской";
+        } else {
+            man = "женский";
+        }
+        var pension = confirm("Вы на пенсии?")
+        var voprosPension;
+        if (pension == true) {
+            voprosPension = "да";
+        } else {
+            voprosPension = "нет";
+        }
+
+        alert(`
+        Ваше ФИО: ${surname} ${name} ${patronymic} 
+        Ваш возраст в годах: ${ageYears}
+        Ваш возраст в днях: ${ageYears * 365} 
+        Через 5 лет вам будет: ${ageYears + 5} 
+        Ваш пол: ${man}
+        Вы на пенсии: ${voprosPension}`);
+
+    </script>
+</body>
+</html>
