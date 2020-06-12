@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка нажатий по кнопке</title>
+</head>
+<body>
+    <style>
+        .myButton {
+            border: 0;
+            border-radius: 4px;
+            background-color: greenyellow;
+        }
+        .red {
+            color: red;
+        }
+    </style>
+    <input type="button" class="red" value="Жми меня">
+    <input type="button" value="Жми меня 2">
+    <input type="button" value="Жми меня 3">
+    <input type="button" value="Жми меня 4">
+    <input type="button" value="Жми меня 5">
+    <input type="button" value="Жми меня 6">
+    <input type="button" value="Жми меня 7">
+    <input type="button" value="Жми меня 8">
+    <input type="button" value="Жми меня 9">
+    <input type="button" value="Жми меня 10">
+    <a href="/work-2.html">Привет</a>
+    <a href="#">Как дела?</a>
+    <script>
+        var links = document.querySelectorAll("a");
+        for (var i=0; i < links.length; i++) {
+            links[i].addEventListener("click", anchorClickHandler);
+        }
+        var el = document.querySelectorAll("input");
+        for (var i=0; i < el.length; i++) {
+            el[i].addEventListener("click", myClickHandler);
+            if (i % 2 !== 0) {
+                el[i].addEventListener("click", secondClickHandler);
+            }
+        }
+        function anchorClickHandler(e) {
+            e.preventDefault();
+            // this.style.border="2px solid red";
+            console.log(this.style.borderLeft);
+            // this.style.borderLeft = "4px solid green"
+            console.log("Вы нажали на ссылку");
+            // e.target.innerHTML = "<h1>Ссылка была нажата</h1>";
+            // document.querySelector("body").innerHTML = "";
+            // return false;
+            var buttons = document.querySelectorAll("[type=button]");
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("red");
+            }
+        }
+        function myClickHandler(e) {
+            console.log(this, e.target)
+            console.log("Мой обработчик события");
+        }
+        function secondClickHandler() {
+            console.log("Четная кнопка была нажата!ы")
+        }
+        function clickHandler(e) {
+            console.log(e);
+        }
+        function aClickHandler() {
+            alert("Хорошо")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123</title>
+    <style>
+        .row {
+            position: relative;
+        }
+        .item {
+            position: absolute;
+            padding: 5px;
+            transition: background-color, left 1s;
+            background-color: rgba(0, 0, 255, 0);
+        }
+        .active {
+            background-color: rgba(0, 0, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="item" style="left: 0;">1</div>
+        <div class="item" style="left: 20px;">2</div>
+        <div class="item" style="left: 40px;">3</div>
+    </div>
+    <script>
+        var currentElement = null;
+        var items = document.querySelectorAll(".item");
+​
+        for (var i = 0; i < items.length; i++) {
+            items[i].addEventListener("click", function(e) {
+                if (currentElement === null) {
+                    currentElement = e.target;
+                    currentElement.classList.add("active");
+                } else {
+                    var tmpLeft = currentElement.style.left;
+                    currentElement.style.left = e.target.style.left;
+                    e.target.style.left = tmpLeft;
+​
+                    currentElement.classList.remove("active");
+                    currentElement = null;
+                }
+            });
+        }
+​
+​
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скрипт</title>
+    <script>
+        var country = [];
+        const minTeritory = 200;
+        const maxPopulation = 9;
+
+        function addCountry() {
+            var country = prompt("Введите название страны")
+            
+            var territory = Number(prompt("Введите площать страны, тыс. км кв."))
+            var population = Number(prompt("Введите численность населения, млн"))
+                
+            return {
+                country,
+                territory,
+                population
+            }
+        }
+
+        //Функция вывода страны с территорией больше чем minTeritory
+        function minTeritoryF(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].territory > minTeritory) {
+                    console.log(`Страна ${arr[i].country} имеет площадь ${arr[i].territory} км кв.`)
+                }
+            }
+        }
+        //Функция вывода страны с населением меньше чем больше чем maxPopulation
+        function maxPopulationF(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].population < maxPopulation) {
+                    console.log(`Страна ${arr[i].country} имеет численность ${arr[i].population} млн. чел.`)
+                }
+            }
+        }
+        
+        do {
+            country[country.length] = addCountry();
+
+            if (confirm("Записываем дальше?")) {
+            } else {
+                break
+            }
+        }
+        while (true)
+        console.log(country)
+        minTeritoryF(country)
+        maxPopulationF(country)
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахматная доска</title>
+</head>
+<body>
+    <script>
+        var chessTable = [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+        ];
+        // var letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+        var letters = "abcdefgh";
+        for (var i = 0; i <= 7; i++) {
+            for (var j = 0; j <= 7; j++) {
+                chessTable[i][j] = {};
+                chessTable[i][j].number = i + 1;
+                chessTable[i][j].letter = letters[j];
+                chessTable[i][j].figure = {};
+                if (i % 2 === 0) {
+                    if (j % 2 === 0) {
+                        chessTable[i][j].color = "#FFFFFF";
+                    } else {
+                        chessTable[i][j].color = "#000000";
+                    }
+                } else {
+                    if (j % 2 === 0) {
+                        chessTable[i][j].color = "#000000";
+                    } else {
+                        chessTable[i][j].color = "#FFFFFF";
+                    }
+                }
+                if (i === 1 || i === 6) {
+                    chessTable[i][j].figure.rank = "пешка";
+                }
+                if (i === 0 || i === 1) {
+                    chessTable[i][j].figure.color = "#FFFFFF";
+                }
+                if (i === 6 || i === 7) {
+                    chessTable[i][j].figure.color = "#000000";
+                }
+            }
+        }
+        chessTable[0][0].figure.rank = chessTable[0][7].figure.rank = chessTable[7][0].figure.rank = chessTable[7][7].figure.rank = "ладья";
+        chessTable[0][1].figure.rank = chessTable[0][6].figure.rank = chessTable[7][1].figure.rank = chessTable[7][6].figure.rank = "конь";
+        chessTable[0][2].figure.rank = chessTable[0][5].figure.rank = chessTable[7][2].figure.rank = chessTable[7][5].figure.rank = "офицер";
+        chessTable[0][3].figure.rank = chessTable[7][3].figure.rank = "ферзь";
+        chessTable[0][4].figure.rank = chessTable[7][4].figure.rank = "король";
+        console.log(chessTable)
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123</title>
+    <style>
+        .row {
+            display: flex;
+        }
+        .item {
+            padding: 5px;
+            transition: background-color 1s;
+            background-color: rgba(0, 0, 255, 0);
+        }
+        .active {
+            background-color: rgba(0, 0, 255, 0.3);
+        }
+        /* .item:nth-of-type(1) {
+            order: 1;
+        }
+        .item:nth-of-type(2) {
+            order: 2;
+        }
+        .item:nth-of-type(3) {
+            order: 3;
+        } */
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="item" style="order: 1">1</div>
+        <div class="item" style="order: 2">2</div>
+        <div class="item" style="order: 3">3</div>
+    </div>
+    <script>
+        var currentElement = null;
+        var items = document.querySelectorAll(".item");
+​
+        for (var i = 0; i < items.length; i++) {
+            items[i].addEventListener("click", function(e) {
+                if (currentElement === null) {
+                    currentElement = e.target;
+                    console.log(currentElement);
+                    currentElement.classList.add("active");
+                } else {
+                    // console.log("order", e.target.style.order);
+                    var tmpOrder = currentElement.style.order;
+                    currentElement.style.order = e.target.style.order;
+                    e.target.style.order = tmpOrder;
+​
+                    currentElement.classList.remove("active");
+                    currentElement = null;
+                }
+            });
+        }
+​
+​
+    </script>
+</body>
+</html>
