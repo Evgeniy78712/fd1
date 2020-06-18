@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Экзамен в автошколе</title>
+  </head>
+  <body>
+    <form action="http://109.235.69.203:8080/data/1003" method="POST">
+      <div>
+        <label>ФИО:<input name="name" /></label>
+      </div>
+      <div>
+        <label>Дата сдачи экзамена:<input name="name" /></label>
+      </div>
+
+      <div>
+        <label>Марка машины:
+          <select name="status">
+            <option>Лада</option>
+            <option>Volkswagen</option>
+            <option>Skoda</option>
+          </select>
+        </label>
+      </div>
+
+      <div>
+        <label>Результат сдачи:
+          <select name="status">
+            <option>Сдал</option>
+            <option>Не сдал</option>
+          </select>
+        </label>
+      </div>
+
+      <div>
+        <label>Возраст:<input name="age" type="number" /></label>
+      </div>
+      <button>Показать список группы</button>
+    </form>
+  </body>
+</html>

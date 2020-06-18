@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Работа с формами</title>
+  </head>
+  <body>
+    <form action="https://fd1-116.herokuapp.com/" method="POST">
+      <div>
+        <label>Имя:<input name="name" /></label>
+      </div>
+      <div>
+        <label>Статус:
+          <select name="status">
+            <option>Женат</option>
+            <option>Холост</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>Возраст:<input name="age" type="number" /></label>
+      </div>
+      <button>Отправить</button>
+    </form>
+  </body>
+</html>
